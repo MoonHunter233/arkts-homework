@@ -1,17 +1,20 @@
 import { VideoInfo } from '../model/VideoInfo';
 
-@Entry
 @Component
 export default struct VideoBox {
-  // @Link video : VideoInfo;
-  videoInfoTest: VideoInfo = {
-    avid: 280871915,
-    coverURL: 'http://i0.hdslb.com/bfs/archive/578c720556c7aa0f89cb72af06594cd97459c572.jpg',
-    title: '【填词】音Distance -“英国的字我 认不得几个”',
-    publishTime: '2001-11-4',
-    duration: 699,
-    shortLink: 'https://b23.tv/BV1Bc411X7fg'
-  }
+  @Prop coverURL : string;
+  @Prop title: string;
+  @Prop publishTime: string;
+  @Prop duration: number;
+  @Prop shortLink: string;
+  // videoInfoTest: VideoInfo = {
+  //   avid: 280871915,
+  //   coverURL: 'http://i0.hdslb.com/bfs/archive/578c720556c7aa0f89cb72af06594cd97459c572.jpg',
+  //   title: '【填词】音Distance -“英国的字我 认不得几个”',
+  //   publishTime: '2001-11-4',
+  //   duration: 699,
+  //   shortLink: 'https://b23.tv/BV1Bc411X7fg'
+  // }
   trans = (duration: number) => {
     let m = ~~(duration / 60);
     let s = ~~((duration % 60));
@@ -20,11 +23,11 @@ export default struct VideoBox {
 
   build() {
     Column() {
-      Image(this.videoInfoTest.coverURL)
+      Image(this.coverURL)
         .height('65%')
         .width('100%')
       Row() {
-        Text(this.videoInfoTest.title)
+        Text(this.title)
           .fontSize('45px')
           .lineHeight('50px')
           .maxLines(2)
@@ -35,11 +38,11 @@ export default struct VideoBox {
       .height('120px')
 
       Row() {
-        Text(this.videoInfoTest.publishTime)
+        Text(this.publishTime)
           .fontColor(Color.Gray)
           .fontSize('30px')
         //TODO transform duration to time-format
-        Text(this.trans(this.videoInfoTest.duration))
+        Text(this.trans(this.duration))
           .fontSize('30px')
       }
       .justifyContent(FlexAlign.SpaceBetween)
@@ -48,9 +51,10 @@ export default struct VideoBox {
     }
     .height('520px')
     .width('520px')
-    .border({ width: '1px' })
+    .margin({top: '50px'})
     .borderRadius('10px')
-    .margin('10px')
     .alignItems(HorizontalAlign.Start)
+    .backgroundColor(Color.White)
+    .shadow({radius: 5, color : Color.Gray, offsetX : 5, offsetY : 5})
   }
 }
