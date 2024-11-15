@@ -1,4 +1,4 @@
-export class Video {
+export class VideoInfo {
   avid: number;
   coverURL: string;
   title: string;
