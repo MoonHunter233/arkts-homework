@@ -1,3 +1,4 @@
+import ScrollerBox from '../components/ScrollerBox';
 import VideoBox from '../components/VideoBox';
 import { VideoInfo } from '../model/VideoInfo';
 import { NetUtil } from '../utils/NetUtil';
@@ -11,21 +12,8 @@ struct MainPage {
 
   build() {
     Column() {
-      //TODO make scroller as a component
-      Scroll(this.scroller) {
-        Flex({ wrap: FlexWrap.Wrap, justifyContent: FlexAlign.SpaceAround }) {
-          ForEach(this.videoList, (item, index) => {
-            VideoBox({
-              coverURL: item.coverURL,
-              title: item.title,
-              publishTime: item.publishTime,
-              duration: item.duration,
-              shortLink: item.shortLink,
-            })
-          })
-        }
-      }
-      .width('100%')
+      ScrollerBox({ videoList: $videoList})
+        .width('100%')
     }
     .backgroundColor('#fffcfcfc')
   }
