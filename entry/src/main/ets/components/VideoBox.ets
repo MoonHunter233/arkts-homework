@@ -2,7 +2,7 @@ import { VideoInfo } from '../model/VideoInfo';
 
 @Component
 export default struct VideoBox {
-  @Prop coverURL : string;
+  @Prop coverURL: string;
   @Prop title: string;
   @Prop publishTime: string;
   @Prop duration: number;
@@ -23,6 +23,7 @@ export default struct VideoBox {
 
   build() {
     Column() {
+      // TODO image Lazy loading
       Image(this.coverURL)
         .height('65%')
         .width('100%')
@@ -34,7 +35,7 @@ export default struct VideoBox {
           .textOverflow({ overflow: TextOverflow.Ellipsis })
       }
       .width('100%')
-      .padding({ top: '20px', left: '20px', right: '30px'})
+      .padding({ top: '20px', left: '20px', right: '30px' })
       .height('120px')
 
       Row() {
@@ -51,10 +52,10 @@ export default struct VideoBox {
     }
     .height('520px')
     .width('520px')
-    .margin({top: '50px'})
+    .margin({ top: '50px' })
     .borderRadius('10px')
     .alignItems(HorizontalAlign.Start)
     .backgroundColor(Color.White)
-    .shadow({radius: 5, color : Color.Gray, offsetX : 5, offsetY : 5})
+    .shadow({ radius: 5, color: Color.Gray, offsetX: 5, offsetY: 5 })
   }
 }
