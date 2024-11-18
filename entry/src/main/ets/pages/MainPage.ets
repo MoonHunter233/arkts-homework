@@ -8,18 +8,18 @@ import { NetUtil } from '../utils/NetUtil';
 struct MainPage {
   @State pageNum: number = 0;
   @State videoList: Array<VideoInfo> = [];
+  net: NetUtil = new NetUtil();
   scroller = new Scroller()
 
   build() {
     Column() {
-      ScrollerBox({ videoList: $videoList})
+      ScrollerBox({ videoList: $videoList })
         .width('100%')
     }
     .backgroundColor('#fffcfcfc')
   }
 
   onPageShow() {
-    let net = new NetUtil();
-    net.getVideoData(this.pageNum, this.videoList);
+    this.net.getVideoData(this.pageNum, this.videoList);
   }
 }
