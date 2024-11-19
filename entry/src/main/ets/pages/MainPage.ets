@@ -26,6 +26,9 @@ struct MainPage {
   }
 
   onPageShow() {
+    if (this.pageNum != 0) {
+      return;
+    }
     this.getVideo();
   }
 }
