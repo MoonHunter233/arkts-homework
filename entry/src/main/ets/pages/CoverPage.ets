@@ -26,7 +26,9 @@ struct CoverPage {
   build() {
     Column() {
       Row() {
-        Text('skip').fontColor('white').fontSize('50px').onClick(() => {this.goHome()})
+        Text('skip').fontColor('white').fontSize('50px').onClick(() => {
+          this.goHome()
+        })
         Column().width('4px').height('100%').backgroundColor('white').margin({ left: 7, right: 7 })
         Text(this.time.toString()).fontColor('white').fontSize('50px')
       }
