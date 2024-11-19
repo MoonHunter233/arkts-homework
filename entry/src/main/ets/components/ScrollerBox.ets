@@ -1,9 +1,11 @@
+import display from '@ohos.display';
 import { VideoInfo } from '../model/VideoInfo';
 import VideoBox from './VideoBox';
 
 @Component
 export default struct ScrollerBox {
   @Link videoList: Array<VideoInfo>;
+  function: Function;
   scroller = new Scroller()
 
   build() {
@@ -21,5 +23,17 @@ export default struct ScrollerBox {
       }
     }
     .width('100%')
+    .onScrollEdge((edge : Edge) => {
+      if (edge.valueOf() == 2) {
+        this.function()
+      }
+    })
+    // .onScroll((x, y) => {
+    //   console.log('scroll test ' + y + '...' + display.getDefaultDisplaySync().height)
+    //
+    //   if (y < 0) {
+    //     this.function()
+    //   }
+    // })
   }
 }
