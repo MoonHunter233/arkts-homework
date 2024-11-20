@@ -44,17 +44,22 @@ struct SponsorPage {
       Image('')
         .width('700px')
         .height('700px')
+        .border({color: Color.Black, style : BorderStyle.Solid, width : '1px'})
+        .margin({top : '50px'})
 
       Row() {
         Text('# AliPay')
           .fontSize('30px')
       }
+      .margin({top : '30px'})
       .width('100%')
       .border({ color: '#ffe2e2e2', style: BorderStyle.Solid, width: { bottom: '1px' } })
 
       Image('')
         .width('700px')
         .height('700px')
+        .border({color: Color.Black, style : BorderStyle.Solid, width : '1px'})
+        .margin({top : '50px'})
     }
     .padding('40px')
   }

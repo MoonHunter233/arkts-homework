@@ -18,6 +18,7 @@ struct SearchPage {
     this.pageNum += 1;
   }
   re_search = () => {
+    this.pageNum = 0;
     this.videoList = [];
     this.search()
   }
@@ -35,6 +36,7 @@ struct SearchPage {
   }
 
   onPageShow() {
+    this.pageNum = 0;
     this.videoList = [];
   }
 }
