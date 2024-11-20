@@ -11,9 +11,16 @@ export default struct SearchBar {
       Image($r('app.media.img'))
         .width('150px')
         .height('150px')
+        .border({ radius: '20px' })
+        .onClick(() => {
+          router.pushUrl({
+            url: 'pages/SponsorPage'
+          })
+        })
+
       TextInput()
         .fontSize('80px')
-        .width('600px')
+        .width('700px')
         .onChange(value => {
           this.keyword = value;
         })

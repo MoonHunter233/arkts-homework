@@ -8,6 +8,12 @@ export default struct MainBar {
       Image($r('app.media.img'))
         .width('150px')
         .height('150px')
+        .border({ radius: '20px' })
+        .onClick(() => {
+          router.pushUrl({
+            url: 'pages/SponsorPage'
+          })
+        })
       Text('首页')
       .fontSize('80px')
       Row () {
